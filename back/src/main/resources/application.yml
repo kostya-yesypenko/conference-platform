@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/conf-platform
+    username: CHNU
+    password: admin
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: confplatformchnu@gmail.com
+    password: wzuf ftev cpxd gjgv
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    templates:
+      path: templates
+  profiles:
+    include:
+      - swagger
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  main:
+    allow-bean-definition-overriding: true
+
+org:
+  chnu:
+    confplatform:
+      back:
+        enable_production_mode: false
+        jwt:
+          jwtSecret: DontWorryItJustATestSecretKey
+          jwtExpirationMinutes: 360
+          refreshExpirationMinutes: 1440
+
+        backoffice:
+          url: http://localhost:4200
+
+springdoc:
+  swagger-ui:
+    enabled: true
